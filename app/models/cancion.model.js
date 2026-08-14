@@ -1,5 +1,6 @@
 module.exports = (sequelize, Sequelize) => {
     const Cancion = sequelize.define('Cancion', {
+        
         nombre: {
             type: Sequelize.STRING
         },
@@ -21,6 +22,9 @@ module.exports = (sequelize, Sequelize) => {
         anioLanzamiento: {
             type: Sequelize.INTEGER
         },
+        carnet:{
+            type: Sequelize.STRING
+        }
 
     });
     return Cancion;

@@ -5,19 +5,21 @@ const Op = db.Sequelize.Op;
 exports.create = (req, res) => {
     if (!req.body.nombre) {
         res.status(400).send({
-            message: "El nombre de la canción no puede estar vacío"
+            message: "El nombre de la canción no puede estar vacio"
         });
         return;
     }
 
     const cancion = {
+        
         nombre: req.body.nombre,
         descripcion: req.body.descripcion,
         artista: req.body.artista,
         duracion: req.body.duracion,
         extension: req.body.extension,
         album: req.body.album,
-        anioLanzamiento: req.body.anioLanzamiento
+        anioLanzamiento: req.body.anioLanzamiento,
+        carnet: req.body.carnet
     };
 
     Cancion.create(cancion)
@@ -85,7 +87,7 @@ exports.findAll = (req, res) => {
         })
         .then(num => {
             if (num == 1) {
-                res.send({ message: "La cancion fue eliminada correctamente!" });
+                res.send({ message: "La cancion fue eliminada correctamente" });
             } else {
                 res.send({ message: `No se puede eliminar la cancion con id=${id}.` });
             }
